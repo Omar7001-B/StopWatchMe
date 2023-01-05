@@ -10,15 +10,16 @@ StopWatchMe is a simple, easy-to-use time-tracking tool that allows you to measu
 - Open the file containing your records
 - Tooltip feature that appears to the right of the system clock, allowing you to easily track your time.
 - Logger File
+- Rename Running StopWatch
 
 ## Usage
 
 To use StopWatchMe, simply press the following hotkeys:
 
-- <kbd>Windows</kbd> + <kbd>NumPad0</kbd>: Start the timer
-- <kbd>Windows</kbd> + <kbd>NumPad1</kbd>: Stop the timer
+- <kbd>Windows</kbd> + <kbd>NumPad0</kbd>: Start Task StopWatch 
+- <kbd>Windows</kbd> + <kbd>NumPad1</kbd>: Stop Task StopWatch
 - <kbd>Windows</kbd> + <kbd>NumPad2</kbd>: Show the recorded tasks
-- <kbd>Windows</kbd> + <kbd>NumPad3</kbd>: Clear the task records
+- <kbd>Windows</kbd> + <kbd>NumPad3</kbd>: Restart The App
 - <kbd>Windows</kbd> + <kbd>NumPadDot</kbd>: Open the file containing your records
 
 ## Contribute

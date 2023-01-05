@@ -136,12 +136,15 @@ DisplayTooltip(text) {
 
 ; ------------------(FUNCTION) Calculate Duration-------------------------------
 CalculateDuration(StartTime, stopTime) {
-   d := Abs(stopTime - startTime) + DebugIncrement
-   if(d//3600000 > 23){
-      return Format("{:02}:{:02}:{:02}:{:02}", d//86400000, MOD(d // 3600000,24), Mod(d // 60000, 60), Mod(d // 1000, 60))
-   }
-   return Format("{:02}:{:02}:{:02}", d // 3600000, Mod(d // 60000, 60), Mod(d // 1000, 60))
+   d := stopTime - startTime + DebugIncrement
 
+   if(d < 0)
+      d += 2147483647
+
+   if(d//3600000 > 23)
+      return Format("{:02}:{:02}:{:02}:{:02}", d//86400000, MOD(d // 3600000,24), Mod(d // 60000, 60), Mod(d // 1000, 60))
+
+   return Format("{:02}:{:02}:{:02}", d // 3600000, Mod(d // 60000, 60), Mod(d // 1000, 60))
 }
 
 setUpdateTimer(miliSeconds)

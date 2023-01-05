@@ -18,7 +18,14 @@ WelcomeFunction()
 #NumPad2::ShowTaskRecords()
 #NumPad3::RestartTheApp()
 #NumPadDot::OpenFileOfRecords()
+
 ; ---- For Debugging ----
+; 1 day = 86400000 ms
+; 50 days = 4320000000 ms
+; 24.7 days = 2128800000 ms
+; 2147483647ms = 24.8 days
+; 1 hour = 3600000 ms
+; 1 minute = 60000 ms
 ;#NumpadAdd::
 ;    ; Make input box to get a number in a variable then add it to DebugIncrement
 ;    getIncrement = 0

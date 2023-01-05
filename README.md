@@ -24,7 +24,7 @@ To use StopWatchMe, simply press the following hotkeys:
 - <kbd>Windows</kbd> + <kbd>NumPadDot</kbd>: Open the file containing your records (Logger)
 
 ## Simple Example of Usage
-Run the `StopWatchMe.exe` file Press `Win + Numpad 0` to start your first task. When you finish the task, press `Win + Numpad 1` to see the estimated time in the bottom corner
+Run the `StopWatchMe.exe` file Press `Win + Numpad 0` to start your first task a small pop-up window appears to let you give it a name. When you finish the task, press `Win + Numpad 1` to see the estimated time in the bottom corner
 
 To change the shortcuts, simply open the main file `StopWatchMe.ahk` and find the lines of code that contain the current shortcuts. You can then change the keys to your desired keys. Then save and right click on the file then `Compile to exe file`.
 

@@ -102,7 +102,7 @@ WelcomeFunction()
    msg2 = Window + NumPad 0 to Start Recording a new Task
    msg3 = Window + NumPad 1 to Stop Recording
    msg4 = Window + NumPad 2 to show the Durations of the Recorded Tasks
-   msg5 = Window + NumPad 3 to clear the tasks
+   msg5 = Window + NumPad 3 to Restart The Program
    msg6 = Window + NumPad . to open the LoggerFile.txt file
    msgBoxText := msg1 . "`n" . msg2 . "`n" . msg3 . "`n" . msg4 . "`n" . msg5 . "`n" . msg6
    MsgBox, 0, Welcome, %msgBoxText%

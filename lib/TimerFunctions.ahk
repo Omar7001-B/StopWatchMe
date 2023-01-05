@@ -18,10 +18,16 @@ StartStopWatch(){
       ;      SetTimerTone(5)
    }
    else {
-      InputBox, TaskName, Change  .  , Enter Your Task Name , TaskName , 320, 100,,,,,,%TaskName%
+      varSaveTaskName := TaskName
+      InputBox, TaskName, Rename Or Delete By Leaving it Empty . , Enter Your Task Name , TaskName , 320, 100,,,,,%TaskName%
       if(TaskName == "")
       {
          DisplayTooltip("Task Deleted")
+         FileAppend, `nDeleted [%varSaveTaskName%] at %Duration%, %FilePath%
+      }
+      else {
+        DisplayTooltip("Task Renamed: " . varSaveTaskName . " to " . TaskName)
+         FileAppend, `nRename [%varSaveTaskName%] --> [%TaskName%] %Duration%, %FilePath%
       }
    }
    return
@@ -31,12 +37,11 @@ StartStopWatch(){
 StopStopWatch(){
    if (TaskName != "") {
       stopTime := A_TickCount
-      duration := CalculateDuration(StartTime, stopTime)
-      DisplayTooltip("Finished["TaskName . "]: " . duration . ")")
-      FileAppend, `nFinished [%TaskName%] %duration%, %FilePath%
-      ; push the task name and duration in the taskRecords array and then clear the TaskName variable
+      DisplayTooltip("Finished["TaskName . "]: " . Duration . ")")
+      FileAppend, `nFinished [%TaskName%] %Duration%, %FilePath%
+      ; push the task name and Duration in the taskRecords array and then clear the TaskName variable
       TaskNames.push(TaskName)
-      TaskDurations.push(duration)
+      TaskDurations.push(Duration)
       TaskName := ""
    }
    return
@@ -59,13 +64,15 @@ ShowTaskRecords(){
    return
 }
 ; ------------------ (HOTKEY) Clear Task Records (#3)-------------------------------
-ClearTaskRecords(){
+RestartTheApp(){
    ; clear everything and reset the variables
-   TaskNames := []
-   TaskDurations := []
-   TaskName := ""
-   DisplayTooltip("All tasks cleared")
-   FileAppend, `nAll tasks cleared, %FilePath%
+   ; show Msg box are you sure?
+    MsgBox, 4, Restart StopWatchMe?, Are you sure you want to restart StopWatchMe?
+    IfMsgBox, Yes
+    {
+        FileAppend, `nRestarted Successfully, %FilePath%
+        Reload
+    }
    return
 }
 
@@ -162,8 +169,9 @@ setUpdateTimer(miliSeconds)
    SetTimer, UpdateTooltip, %miliSeconds%
 
    UpdateTooltip:
+   Duration := CalculateDuration(StartTime, A_TickCount)
       if(TaskName != ""){
-         DisplayTooltip("[" . TaskName . "] : " . CalculateDuration(StartTime, A_TickCount))
+         DisplayTooltip("[" . TaskName . "] : " . Duration)
       }
    return
 }

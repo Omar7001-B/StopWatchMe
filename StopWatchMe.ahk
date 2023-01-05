@@ -8,17 +8,16 @@ global TaskNames := []
 global TaskDurations := []
 global FilePath := A_ScriptDir . "\LoggerFile.txt" ; File path to save the log
 global TaskName = "" ,StartTime = ""
+global Duration = ""
 
 WelcomeFunction()
 #NumPad0::StartStopWatch()
 #NumPad1::StopStopWatch()
 #NumPad2::ShowTaskRecords()
-#NumPad3::ClearTaskRecords()
+#NumPad3::RestartTheApp()
 #NumPadDot::OpenFileOfRecords()
 
-
-
- ; ------------------  Archive ------------------
+; ------------------  Archive ------------------
 ;#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.
 ;#Warn  ; Enable warnings to assist with detecting common errors.
 ;SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
@@ -62,7 +61,7 @@ WelcomeFunction()
 ; calculate the duration between the start time and the stop time
 ;---------
 ;   if (A_ScreenCount > 1) {
-      ; If there is a second screen
+; If there is a second screen
 ;      ControlGetPos, x, y, w, h, SysListView321
 ;      screenWidth2 := w
 ;      screenHeight2 := h

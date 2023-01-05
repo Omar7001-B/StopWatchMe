@@ -1,0 +1,39 @@
+January 4, 2023
+Finished [first Task] 00:00:05
+Finished [first Task] 00:03:200
+Finished [first Task] 00:04:215
+Finished [Just a task ] 00:00:09
+Finished [Just a task 2] 00:00:08
+All tasks cleared
+Finished [PRoblem S] 00:00:12
+Finished [Just a new task ] 00:00:25
+Finished [Just a new task ] 00:02:93
+All tasks cleared
+Finished [Just lisetning Music] 00:01:59
+All tasks cleared
+Finished [jo] 00:00:02
+Finished [Task 1] 00:00:05
+All tasks cleared
+Finished [Recording THis] 00:00:03
+ Hello World!
+ January 5, 2023
+Finished [sd] 00:00:06
+Finished [task] 00:01:39
+All tasks cleared
+Finished [Writing a Script About my Project to upload it on github] 00:01:44
+All tasks cleared
+All tasks cleared
+Finished [Task1 ] 00:00:03
+Finished [Another Name] 00:01:45
+Finished [This] 00:00:23To "Second"To "sd"To "Second"To "sddsds"
+TaskName Changed From "First Taks"To "Second Task"
+Finished [Second Task] 00:00:18
+TaskName Changed From "sd"  To "sdsdd"
+Renaming "sdsd" --> "sdds"
+Finished [sdds] 00:00:19
+Finished [ProblemCReading] 00:00:05
+Renaming "asd;kfjl" --> "asdfkjsdkjalf"
+Finished [this] 00:00:05
+Renaming "sd" --> ,sd
+Finished [Hi Name] 00:00:02
+Finished [Making First Commit On sdddddddddddddddddddddddddddddddd] 00:00:03

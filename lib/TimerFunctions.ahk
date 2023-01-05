@@ -26,7 +26,7 @@ StartStopWatch(){
          FileAppend, `nDeleted [%varSaveTaskName%] at %Duration%, %FilePath%
       }
       else {
-        DisplayTooltip("Task Renamed: " . varSaveTaskName . " to " . TaskName)
+         DisplayTooltip("Task Renamed: " . varSaveTaskName . " to " . TaskName)
          FileAppend, `nRename [%varSaveTaskName%] --> [%TaskName%] %Duration%, %FilePath%
       }
    }
@@ -67,12 +67,12 @@ ShowTaskRecords(){
 RestartTheApp(){
    ; clear everything and reset the variables
    ; show Msg box are you sure?
-    MsgBox, 4, Restart StopWatchMe?, Are you sure you want to restart StopWatchMe?
-    IfMsgBox, Yes
-    {
-        FileAppend, `nRestarted Successfully, %FilePath%
-        Reload
-    }
+   MsgBox, 4, Restart StopWatchMe?, Are you sure you want to restart StopWatchMe?
+   IfMsgBox, Yes
+   {
+      FileAppend, `nRestarted Successfully, %FilePath%
+      Reload
+   }
    return
 }
 
@@ -136,32 +136,12 @@ DisplayTooltip(text) {
 
 ; ------------------(FUNCTION) Calculate Duration-------------------------------
 CalculateDuration(StartTime, stopTime) {
-   ; String
-   my_duration := stopTime - StartTime
+   d := Abs(stopTime - startTime) + DebugIncrement
+   if(d//3600000 > 23){
+      return Format("{:02}:{:02}:{:02}:{:02}", d//86400000, MOD(d // 3600000,24), Mod(d // 60000, 60), Mod(d // 1000, 60))
+   }
+   return Format("{:02}:{:02}:{:02}", d // 3600000, Mod(d // 60000, 60), Mod(d // 1000, 60))
 
-   my_duration := my_duration / 1000
-   durationSecs := MOD(my_duration, 60)
-   durationMins := MOD(my_duration / 60, 60)
-   durationHours := my_duration / 3600
-   ; Round the my_duration to the nearest second
-   durationSecs := Round(durationSecs)
-   durationMins := Round(durationMins)
-   durationHours := Round(durationHours)
-   ; Format the my_duration as HH:MM:SS
-   durationFormatted := ""
-   if (durationHours < 10) {
-      durationHours .= "0"
-   }
-   durationFormatted .= durationHours . ":"
-   if (durationMins < 10) {
-      durationFormatted .= "0"
-   }
-   durationFormatted .= durationMins . ":"
-   if (durationSecs < 10) {
-      durationFormatted .= "0"
-   }
-   durationFormatted .= durationSecs
-   return durationFormatted
 }
 
 setUpdateTimer(miliSeconds)
@@ -169,7 +149,7 @@ setUpdateTimer(miliSeconds)
    SetTimer, UpdateTooltip, %miliSeconds%
 
    UpdateTooltip:
-   Duration := CalculateDuration(StartTime, A_TickCount)
+      Duration := CalculateDuration(StartTime, A_TickCount)
       if(TaskName != ""){
          DisplayTooltip("[" . TaskName . "] : " . Duration)
       }

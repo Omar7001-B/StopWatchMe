@@ -7,8 +7,10 @@ SetWorkingDir, %A_ScriptDir%
 global TaskNames := []
 global TaskDurations := []
 global FilePath := A_ScriptDir . "\LoggerFile.txt" ; File path to save the log
-global TaskName = "" ,StartTime = ""
+global TaskName = ""
+global StartTime = ""
 global Duration = ""
+global DebugIncrement = 0
 
 WelcomeFunction()
 #NumPad0::StartStopWatch()
@@ -16,6 +18,14 @@ WelcomeFunction()
 #NumPad2::ShowTaskRecords()
 #NumPad3::RestartTheApp()
 #NumPadDot::OpenFileOfRecords()
+; ---- For Debugging ----
+;#NumpadAdd::
+;    ; Make input box to get a number in a variable then add it to DebugIncrement
+;    getIncrement = 0
+;    InputBox, getIncrement, Debug Increment, Debug Increment, %DebugIncrement%
+;    DebugIncrement := DebugIncrement + getIncrement
+;
+;return
 
 ; ------------------  Archive ------------------
 ;#NoEnv  ; Recommended for performance and compatibility with future AutoHotkey releases.

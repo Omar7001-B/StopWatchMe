@@ -5,7 +5,7 @@ StopWatchMe is a simple, easy-to-use time-tracking tool that allows you to measu
 ## Features
 - Time-saving and easy to use
 - Start and stop the timer using hotkeys
-- Live preview in the top-left corner of the screen
+- Live preview in the down-right corner of the screen
 - View your previous recorded tasks
 - Rename current task at any time
 - Restart the app to clear records

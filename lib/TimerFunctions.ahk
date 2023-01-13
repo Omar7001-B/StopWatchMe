@@ -27,7 +27,7 @@ StartStopWatch(){
       }
       else {
          DisplayTooltip("Task Renamed: " . varSaveTaskName . " to " . TaskName)
-         FileAppend, `nRename [%varSaveTaskName%] --> [%TaskName%] %Duration%, %FilePath%
+         FileAppend, `n[%varSaveTaskName%] --> [%TaskName%] %Duration%, %FilePath%
       }
    }
    return
@@ -37,8 +37,9 @@ StartStopWatch(){
 StopStopWatch(){
    if (TaskName != "") {
       stopTime := A_TickCount
-      DisplayTooltip("Finished["TaskName . "]: " . Duration . ")")
-      FileAppend, `nFinished [%TaskName%] %Duration%, %FilePath%
+      DisplayTooltip("✓ ["TaskName . "]: " . Duration . ")")
+      ;; I removed the word Finished to make the log has few words
+      FileAppend, `n[%TaskName%] %Duration%, %FilePath%
       ; push the task name and Duration in the taskRecords array and then clear the TaskName variable
       TaskNames.push(TaskName)
       TaskDurations.push(Duration)
@@ -104,8 +105,10 @@ WelcomeFunction()
    msg4 = Window + NumPad 2 to show the Durations of the Recorded Tasks
    msg5 = Window + NumPad 3 to Restart The Program
    msg6 = Window + NumPad . to open the LoggerFile.txt file
+
    msgBoxText := msg1 . "`n" . msg2 . "`n" . msg3 . "`n" . msg4 . "`n" . msg5 . "`n" . msg6
-   MsgBox, 0, Welcome, %msgBoxText%
+   ;I removed the welcome message because it's a little annoying //-//
+   ;MsgBox, 0, Welcome, %msgBoxText%
 
    ; --------- Adding Date To The File And Removing Multiples Space Lines-----------
    FileRead, contents, %FilePath%

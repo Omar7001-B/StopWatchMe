@@ -9,13 +9,21 @@ StartStopWatch(){
    ; InputBox, Prompt, HIDE, Width, Height, X, Y, Locale, TimeOut, Defualt
    if (TaskName == "") {
       InputBox, TaskName, Enter task name, Enter Your Task Name , TaskName , 320, 100
-      while(TaskName = "" && ErrorLevel = 0) {
+      while(TaskName == "" && ErrorLevel = 0) { ; while clicking ok without filling the field
          InputBox, TaskName, TaskName Can't Be Empty , , TaskName , 320, 100
       }
-      StartTime := A_TickCount
-      DisplayTooltip("Task started: " . TaskName)
-      setUpdateTimer(1000) ;; caling the function to update the timer of current task
-      ;      SetTimerTone(5)
+      If ErrorLevel ; if he calick cancel or close
+      {
+         ; The user clicked "Cancel"
+         DisplayTooltip("Canceled")
+         TaskName := ""
+      }
+      Else{
+         StartTime := A_TickCount
+         DisplayTooltip("Task started: " . TaskName)
+         setUpdateTimer(1000) ;; caling the function to update the timer of current task
+         ;      SetTimerTone(5)
+      }
    }
    else {
       varSaveTaskName := TaskName
@@ -25,7 +33,8 @@ StartStopWatch(){
          DisplayTooltip("Task Deleted")
          FileAppend, `nDeleted [%varSaveTaskName%] at %Duration%, %FilePath%
       }
-      else {
+      else if (varSaveTaskName != TaskName)
+      {
          DisplayTooltip("Task Renamed: " . varSaveTaskName . " to " . TaskName)
          FileAppend, `n[%varSaveTaskName%] --> [%TaskName%] %Duration%, %FilePath%
       }

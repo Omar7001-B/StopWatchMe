@@ -7,8 +7,10 @@ Menu, Tray, Icon, Shell32.dll, 175	; also changes Inputbox icon
 ; ------------------ (HOTKEY) Start Stop Watch (#0)-------------------------------
 StartStopWatch(){
    ; InputBox, Prompt, HIDE, Width, Height, X, Y, Locale, TimeOut, Defualt
+
    if (TaskName == "") {
       InputBox, TaskName, Enter task name, Enter Your Task Name , TaskName , 320, 100
+      ; append curTime in FileePath, with a message At (curTime) TaskName Started
       while(TaskName == "" && ErrorLevel = 0) { ; while clicking ok without filling the field
          InputBox, TaskName, TaskName Can't Be Empty , , TaskName , 320, 100
       }
@@ -19,8 +21,10 @@ StartStopWatch(){
          TaskName := ""
       }
       Else{
+         getCurrentTime()
          StartTime := A_TickCount
          DisplayTooltip("Task started: " . TaskName)
+         FileAppend, `nAt %CurrentTime% [%TaskName%], %FilePath%
          setUpdateTimer(1000) ;; caling the function to update the timer of current task
          ;      SetTimerTone(5)
       }
@@ -169,4 +173,11 @@ setUpdateTimer(miliSeconds)
          DisplayTooltip("[" . TaskName . "] : " . Duration)
       }
    return
+}
+
+; ------------------(FUNCTION) Get Current Time-------------------------------
+
+getCurrentTime(){
+   FormatTime, MyTime,, hh:mm tt
+   CurrentTime := myTime
 }

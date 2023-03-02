@@ -1,5 +1,6 @@
 ﻿#NoEnv ; Recommended for performance and compatibility with future AutoHotkey releases.
 #Warn ; Enable warnings to assist with detecting common errors.
+
 ;SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
 Menu, Tray, Icon, Shell32.dll, 175	; also changes Inputbox icon
@@ -134,6 +135,7 @@ WelcomeFunction()
       FormatTime, currentDateTime, , MMMM d, yyyy
       FileAppend, `n %currentDateTime%, %FilePath%
    }
+   return
 }
 
 ; ------------------ (FUNCTION) Display Tooltip-------------------------------
@@ -149,6 +151,7 @@ DisplayTooltip(text) {
 
    ; Display the tooltip
    ToolTip, %text%, %tooltipX%, %tooltipY%
+   return
 }
 
 ; ------------------(FUNCTION) Calculate Duration-------------------------------
@@ -181,4 +184,11 @@ setUpdateTimer(miliSeconds)
 getCurrentTime(){
    FormatTime, MyTime,, hh:mm tt
    return MyTime
+}
+
+ExitCallback(ExitReason, ExitCode) {
+   if (TaskName != "") {
+      TaskStopTime := getCurrentTime()
+      FileAppend % "`n" TaskStartTime " - " TaskStopTime " [" TaskName "] " Duration " Closed", % FilePath
+   }
 }

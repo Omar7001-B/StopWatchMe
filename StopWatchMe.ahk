@@ -3,6 +3,7 @@
 #Warn ; Enable warnings to assist with detecting common errors.
 #SingleInstance, force
 SetWorkingDir, %A_ScriptDir%
+
 #Include <TimerFunctions>
 ; Global Variable comes first
 global TaskNames := []
@@ -15,6 +16,7 @@ global TaskStartTime = ""
 global TaskStopTime = ""
 global DebugIncrement = 0
 
+OnExit("ExitCallback", 1)
 WelcomeFunction()
 #NumPad0::StartStopWatch()
 #NumPad1::StopStopWatch()

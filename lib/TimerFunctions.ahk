@@ -21,10 +21,10 @@ StartStopWatch(){
          TaskName := ""
       }
       Else{
-         getCurrentTime()
+         TaskStartTime := getCurrentTime()
          StartTime := A_TickCount
          DisplayTooltip("Task started: " . TaskName)
-         FileAppend, `nAt %CurrentTime% [%TaskName%], %FilePath%
+         ;FileAppend, `nAt %TaskStartTime% [%TaskName%], %FilePath%
          setUpdateTimer(1000) ;; caling the function to update the timer of current task
          ;      SetTimerTone(5)
       }
@@ -50,9 +50,10 @@ StartStopWatch(){
 StopStopWatch(){
    if (TaskName != "") {
       stopTime := A_TickCount
+      TaskStopTime := getCurrentTime()
       DisplayTooltip("✓ ["TaskName . "]: " . Duration . ")")
       ;; I removed the word Finished to make the log has few words
-      FileAppend, `n[%TaskName%] %Duration%, %FilePath%
+      FileAppend, `n%TaskStartTime% - %TaskStopTime% [%TaskName%] %Duration%, %FilePath%
       ; push the task name and Duration in the taskRecords array and then clear the TaskName variable
       TaskNames.push(TaskName)
       TaskDurations.push(Duration)
@@ -179,5 +180,5 @@ setUpdateTimer(miliSeconds)
 
 getCurrentTime(){
    FormatTime, MyTime,, hh:mm tt
-   CurrentTime := myTime
+   return MyTime
 }

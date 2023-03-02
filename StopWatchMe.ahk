@@ -11,7 +11,8 @@ global FilePath := A_ScriptDir . "\LoggerFile.txt" ; File path to save the log
 global TaskName = ""
 global StartTime = ""
 global Duration = ""
-global CurrentTime = ""
+global TaskStartTime = ""
+global TaskStopTime = ""
 global DebugIncrement = 0
 
 WelcomeFunction()

@@ -1,28 +1,5 @@
-Finished [Getting Some Water] 00:14:34
-Finished [Talking With Biso] 10:53:14
- January 5, 2023
-Rename [Test] --> [Test] 00:00:03
-Restarted Successfully
-Restarted Successfully
-Rename [sd] --> [sdd] 24:20:31:23
-Finished [sdd] 24:20:31:23
-Restarted Successfully
-Restarted Successfully
-Rename [eating] --> [eating] 00:02:48
-Finished [eating] 00:58:34
-Finished [Washing Hands] 00:18:21
-Finished [Wathcing GPT Vid] 00:24:06
-Finished [Taking on Discord for a while] 00:02:11
-Finished [Searcing Dalle Ai] 01:08:08
-Finished [Testimg MidJJourney] 00:16:53
-Finished [getting water] 00:02:42
  January 6, 2023
-Finished [Readin Problem A ] 00:02:30
-Finished [WC in contest] 00:01:43
-Finished [Reading PRoblem B Qucik sort] 00:08:30
-Rename [Writing Code Problem B Quick Sort] --> [Writing Code Problem B Quick Sort(First Prompt)] 00:16:55
-Finished [Writing Code Problem B Quick Sort(First Prompt)] 00:16:56 // I didn't Understood the problem good at first
-Finished [Readin Problem C] 00:25:54 //Didn't Understand the problem well
-Finished [Implementing a new simple solution] 00:18:55 // Wasted more than 30 minutes thinking about random algorithms
-Finished [Wrong Answer Try Again] 00:22:30 // Didn't Think on a pen and paper
-Finished [Try new approach ] 03:38:29 // Random trial and error approaches
+06:42 AM - 06:52 AM [Problem A Sorting] 00:09:59
+07:02 AM - 07:30 AM [Problem B WaterMelon] 00:27:44
+[Problemh] --> [Problem H] 00:00:04
+08:50 AM - 08:58 AM [Problem H] 00:08:22

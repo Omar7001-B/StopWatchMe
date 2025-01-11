@@ -119,7 +119,7 @@ WelcomeFunction()
    msg3 = Window + NumPad 1 to Stop Recording
    msg4 = Window + NumPad 2 to show the Durations of the Recorded Tasks
    msg5 = Window + NumPad 3 to Restart The Program
-   msg6 = Window + NumPad . to open the LoggerFile.txt file
+   msg6 = Window + NumPad . to open the StopWatchRecords.txt file
 
    msgBoxText := msg1 . "`n" . msg2 . "`n" . msg3 . "`n" . msg4 . "`n" . msg5 . "`n" . msg6
    ;I removed the welcome message because it's a little annoying //-//

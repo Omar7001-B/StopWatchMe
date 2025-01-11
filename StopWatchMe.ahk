@@ -8,7 +8,7 @@ SetWorkingDir, %A_ScriptDir%
 ; Global Variable comes first
 global TaskNames := []
 global TaskDurations := []
-global FilePath := A_ScriptDir . "\StopWatchRecords.txt" ; File path to save the log
+global FilePath := A_ScriptDir . "\data\StopWatchRecords.txt" ; File path to save the log
 global TaskName = ""
 global StartTime = ""
 global Duration = ""
